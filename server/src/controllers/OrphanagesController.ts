@@ -1,5 +1,5 @@
 import {Request, Response} from 'express'
-import {getRepository} from 'typeorm'
+import {getRepository, Like} from 'typeorm'
 import * as Yup from 'yup'
 
 import orphanagesView from '../views/orphanages_view'
@@ -7,11 +7,13 @@ import Orphanage from '../models/Orphanage'
 
 export default {
 	async index(request:Request, response:Response){
+		let {search} = request.query
+		search = search ==undefined ? '_' : search
 		const orphanagesRepository = getRepository(Orphanage)
 		const orphanages = await orphanagesRepository.find({
+			name: Like(`%${search}%`),
 			relations: ['images']
 		})
-
 
 		return response.status(200).json(orphanagesView.renderMany(orphanages))
 
