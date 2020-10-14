@@ -73,6 +73,57 @@
 	height: 100vh;
 }
 
+#page-map .map-popup .leaflet-popup-content-wrapper{
+	background:rgba(255,255,255,0.8);
+	border-radius:20px;
+	box-shadow: none;
+}
+
+#page-map .map-popup .leaflet-popup-content{
+	color:#0089a5;
+	font-size: 20px;
+	font-weight: bold;
+	margin: 8px 12px;
+
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#page-map .map-popup .leaflet-popup-content .popup-link{
+	width:48px;
+	height:48px;
+	background: #15c3d6;
+	box-shadow: 17.2868px 27.6589px 41.4885px rgba(23,142,166,0.16);
+	border-radius: 12px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+#page-map .map-popup .leaflet-popup-tip-container{
+	display: none;
+}
+#page-map .search-orphanages{
+	border:1px solid lightblue;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 2rem;
+}
+#page-map .search-orphanages input{
+	border:none;
+	outline:none;
+	width:calc(100%-32px);
+	padding:0 4px;
+	background: transparent;
+	color:white;
+}
+.search-orphanages input::placeholder{
+	color:lightblue;
+}
 @media screen and (max-width:760px) {
 	#page-map{
 		flex-direction: column;
