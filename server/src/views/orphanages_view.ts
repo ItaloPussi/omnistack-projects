@@ -2,7 +2,7 @@ import Orphanage from '../models/Orphanage'
 import ImagesView from './images_view'
 export default{
 	render(orphanage: Orphanage){
-		const {id,name,latitude,longitude, about, instructions, opening_hours, open_on_weekends,images} = orphanage
+		const {id,name,latitude,longitude, about, instructions, opening_hours, open_on_weekends,images, whatsapp} = orphanage
 		return {
 			id,
 			name,
@@ -12,6 +12,7 @@ export default{
 			instructions, 
 			opening_hours, 
 			open_on_weekends,
+			whatsapp,
 			images: ImagesView.renderMany(images)
 		}
 	},

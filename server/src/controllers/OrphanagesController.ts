@@ -32,7 +32,7 @@ export default {
 		}
 	},
 	async create(request:Request, response:Response){
-		const {name, latitude, longitude, about, instructions, opening_hours, open_on_weekends} = request.body
+		const {name, latitude, longitude, about, instructions, opening_hours, open_on_weekends, whatsapp} = request.body
 		
 		const requestImages = request.files as Express.Multer.File[]
 		const images = requestImages.map(file=>{
@@ -45,6 +45,7 @@ export default {
 			name, 
 			latitude,
 			longitude,
+			whatsapp,
 			about,
 			instructions,
 			opening_hours,
@@ -57,6 +58,7 @@ export default {
 			name: Yup.string().required(),
 			latitude: Yup.number().required(),
 			longitude: Yup.number().required(),
+			whatsapp: Yup.number().required(),
 			about: Yup.string().required().max(300),
 			instructions: Yup.string().required(),
 			opening_hours: Yup.string().required(),
